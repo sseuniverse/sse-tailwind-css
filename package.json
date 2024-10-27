@@ -1,0 +1,51 @@
+{
+  "name": "sse-tail-css",
+  "version": "1.0.0",
+  "main": "./dist/generate.js",
+  "types": "./dist/generate.d.ts",
+  "bin": {
+    "sse-css": "dist/generate.js"
+  },
+  "files": ["dist", "src", "README.md", "tsconfig.json"],
+  "exports": {
+    ".": {
+      "default": "./dist/generate.js",
+      "types": "./dist/generate.d.ts"
+    },
+    "./types": {
+      "default": "./dist/types.js",
+      "types": "./dist/types.d.ts"
+    },
+    "./rollup": {
+      "default": "./dist/plugin/rollup.js",
+      "types": "./dist/plugin/rollup.d.ts"
+    },
+    "./webpack": {
+      "default": "./dist/plugin/webpack.js",
+      "types": "./dist/plugin/webpack.d.ts"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "keywords": [
+    "SSE World",
+    "tailwindcss"
+  ],
+  "author": "SSE World",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "@types/node": "^22.8.1",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3",
+    "webpack": "^5.95.0"
+  },
+  "devDependencies": {
+    "rollup": "^4.24.1"
+  }
+}
