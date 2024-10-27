@@ -6,7 +6,12 @@
   "bin": {
     "sse-css": "dist/generate.js"
   },
-  "files": ["dist", "src", "README.md", "tsconfig.json"],
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "tsconfig.json"
+  ],
   "exports": {
     ".": {
       "default": "./dist/generate.js",
@@ -35,7 +40,7 @@
   ],
   "author": "SSE World",
   "license": "MIT",
-  "description": "",
+  "description": "A versatile plugin that integrates with both Webpack and Rollup to generate a Tailwind CSS file based on your configuration and specified content files. This plugin simplifies the process of incorporating Tailwind CSS into your build workflow.",
   "dependencies": {
     "@types/node": "^22.8.1",
     "autoprefixer": "^10.4.20",
@@ -47,5 +52,13 @@
   },
   "devDependencies": {
     "rollup": "^4.24.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sseuniverse/sse-tailwind-css.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sseuniverse/sse-tailwind-css/issues"
+  },
+  "homepage": "https://github.com/sseuniverse/sse-tailwind-css#readme"
 }
