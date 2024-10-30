@@ -1,10 +1,10 @@
 {
   "name": "sse-tail-css",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "main": "./dist/generate.js",
   "types": "./dist/generate.d.ts",
   "bin": {
-    "sse-css": "dist/generate.js"
+    "sse-tail-css": "dist/generate.js"
   },
   "files": [
     "dist",

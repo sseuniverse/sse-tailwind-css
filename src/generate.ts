@@ -3,15 +3,34 @@ import path from "path";
 import { execSync } from "child_process";
 import { Config } from "./types";
 
+// Function to resolve a file with various extensions
+function resolveFileWithExtensions(
+  filePath: string,
+  extensions: string[]
+): string {
+  for (const ext of extensions) {
+    const fullPath = filePath + ext;
+    if (fs.existsSync(fullPath)) {
+      return fullPath;
+    }
+  }
+  throw new Error(
+    `File not found for path: ${filePath} with extensions: ${extensions.join(
+      ", "
+    )}`
+  );
+}
+
 const command = process.argv[2];
 
 if (command === "generate") {
-  const configFile = path.resolve(process.cwd(), "ssecs.config.js");
-
-  if (!fs.existsSync(configFile)) {
-    console.error("Configuration file ssecs.config.js not found.");
-    process.exit(1);
-  }
+  const configFileBase = path.resolve(process.cwd(), "ssecs.config");
+  const configFile = resolveFileWithExtensions(configFileBase, [
+    ".js",
+    ".ts",
+    ".mjs",
+    ".cjs",
+  ]);
 
   // Load configuration with type assertion
   const config: Config = require(configFile);
@@ -26,16 +45,10 @@ if (command === "generate") {
     outputCSS = path.resolve(config.output?.dir || process.cwd(), "output.css");
   }
 
-  // const outputCSS = config.output?.dir
-  //   ? path.resolve(config.output.dir, "output.css")
-  //   : path.resolve(process.cwd(), "output.css");
-
   // Generate the Tailwind CSS file
   const tailwindContent = config.files
     .map((file: string) => `./${file}`)
     .join(", ");
-
-  // Create a temporary Tailwind config file
 
   const tailwindConfig = `
 module.exports = {
