@@ -1,10 +1,10 @@
 {
   "name": "sse-tail-css",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "./dist/generate.js",
   "types": "./dist/generate.d.ts",
   "bin": {
-    "sse-tail-css": "dist/generate.js"
+    "sse-tail-css": "./dist/generate.js"
   },
   "files": [
     "dist",
@@ -32,7 +32,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "tsc",
+    "start": "node dist/generate.js"
   },
   "keywords": [
     "SSE World",
@@ -45,6 +46,7 @@
     "@types/node": "^22.8.1",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
+    "sse-tail-css": "file:sse-tail-css-1.0.2.tgz",
     "tailwindcss": "^3.4.14",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3",
